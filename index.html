@@ -2,40 +2,39 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Semana de Benefícios e Bem Estar</title>
+<title>Eleição geral de benefícios 2026</title>
 
 <style>
 
 body{
-font-family: Arial, sans-serif;
-background:#f4f4f4;
+font-family: Arial;
 margin:0;
-padding:0;
+background:#f5f5f5;
 }
 
 header{
 background:#e31c23;
 color:white;
-padding:30px;
 text-align:center;
-font-size:32px;
+padding:30px;
+font-size:30px;
 font-weight:bold;
 }
 
 .container{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:20px;
 padding:40px;
 }
 
 .card{
 background:white;
-border-radius:10px;
 padding:20px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
 cursor:pointer;
-transition:0.3s;
+transition:0.2s;
 }
 
 .card:hover{
@@ -43,14 +42,36 @@ transform:translateY(-5px);
 }
 
 .data{
-font-weight:bold;
 color:#e31c23;
+font-weight:bold;
 margin-bottom:10px;
 }
 
 .tema{
-font-size:18px;
 font-weight:bold;
+}
+
+.timeline{
+background:white;
+padding:40px;
+margin:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.timeline h2{
+margin-top:0;
+}
+
+.timeline-item{
+display:flex;
+margin-bottom:15px;
+}
+
+.timeline-date{
+font-weight:bold;
+color:#e31c23;
+width:150px;
 }
 
 .modal{
@@ -69,20 +90,20 @@ align-items:center;
 background:white;
 padding:30px;
 border-radius:10px;
-max-width:600px;
+max-width:500px;
 width:90%;
 }
 
 .modal img{
-width:100%;
+width:180px;
+height:auto;
 border-radius:8px;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 .close{
 float:right;
 cursor:pointer;
-font-size:20px;
 font-weight:bold;
 }
 
@@ -101,7 +122,7 @@ margin-bottom:5px;
 <body>
 
 <header>
-Semana de Benefícios e Bem Estar
+Eleição geral de benefícios 2026
 </header>
 
 <div class="container">
@@ -113,22 +134,68 @@ Semana de Benefícios e Bem Estar
 
 <div class="card" onclick="openModal(1)">
 <div class="data">11/06</div>
-<div class="tema">Bem-estar emocional e produtividade sustentável</div>
+<div class="tema">Bem-estar emocional</div>
 </div>
 
 <div class="card" onclick="openModal(2)">
 <div class="data">12/06</div>
-<div class="tema">Bem estar físico: Corpo saudável, mente produtiva</div>
+<div class="tema">Bem estar físico</div>
 </div>
 
 <div class="card" onclick="openModal(3)">
 <div class="data">15/06</div>
-<div class="tema">Bem estar integral: Vida equilibrada</div>
+<div class="tema">Bem estar integral</div>
 </div>
 
 <div class="card" onclick="openModal(4)">
 <div class="data">16/06</div>
-<div class="tema">Bem estar social: Como o iFood impacta</div>
+<div class="tema">Bem estar social</div>
+</div>
+
+</div>
+
+<div class="timeline">
+
+<h2>Linha do tempo da eleição</h2>
+
+<div class="timeline-item">
+<div class="timeline-date">01/06</div>
+<div>Vigência e envio das cartas</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">02/06</div>
+<div>Envio das cartas via Alli</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">03 a 10/06</div>
+<div>Período de feedback</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">11/06</div>
+<div>Cargas no sistema</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">15/06</div>
+<div>Início da eleição de benefícios</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">22/06</div>
+<div>Término da eleição de benefícios</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">23/06 a 30/06</div>
+<div>Período de movimentações</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-date">01/07</div>
+<div>Nova vigência dos benefícios</div>
 </div>
 
 </div>
@@ -139,9 +206,9 @@ Semana de Benefícios e Bem Estar
 
 <span class="close" onclick="closeModal()">X</span>
 
-<img id="modalImg" src="">
+<img id="modalImg">
 
-<h2 id="modalTema"></h2>
+<h3 id="modalTema"></h3>
 
 <div class="section">
 <div class="section-title">Speakers</div>
@@ -149,63 +216,62 @@ Semana de Benefícios e Bem Estar
 </div>
 
 <div class="section">
-<div class="section-title">Ativações durante o dia</div>
+<div class="section-title">Ativações</div>
 <div id="modalAtivacoes"></div>
 </div>
 
 </div>
 </div>
 
-
 <script>
 
 const eventos = [
 
 {
-tema:"Abertura: Benefícios flexíveis e o bem estar",
+tema:"Abertura: Benefícios flexíveis e bem estar",
 speakers:"Rafaela Lockton, Lilian Kazama, Dr Leandro",
-ativacoes:"Novidades da eleição de benefícios 2026, datas e regras, convite para próximas palestras",
+ativacoes:"Novidades da eleição 2026, datas e regras",
 img:"https://images.unsplash.com/photo-1552664730-d307ca884978"
 },
 
 {
-tema:"Bem-estar emocional e produtividade sustentável",
-speakers:"May (Psicóloga), Vittude, Nat Ubilla, Wellhub",
-ativacoes:"Ativações Vittude, Apps de bem estar, IDOC",
+tema:"Bem-estar emocional e produtividade",
+speakers:"May (psicóloga), Vittude, Nat Ubilla",
+ativacoes:"Apps de bem estar, Vittude, IDOC",
 img:"https://images.unsplash.com/photo-1506126613408-eca07ce68773"
 },
 
 {
-tema:"Bem estar físico: Corpo saudável, mente produtiva",
-speakers:"Dr Amigo, Dr Marcelo Morgado, Bradesco",
-ativacoes:"Ativações Wellhub, produtos para exercícios",
+tema:"Bem estar físico",
+speakers:"Dr Marcelo Morgado, Bradesco",
+ativacoes:"Wellhub e produtos para exercícios",
 img:"https://images.unsplash.com/photo-1517836357463-d25dfeac3438"
 },
 
 {
-tema:"Bem estar integral: Vida equilibrada em um mundo acelerado",
-speakers:"Dr Marcelo, Murilo (Hbit), Dani Piantino",
-ativacoes:"Ativações Novamed, IDOC, farmácia, medicamentos",
+tema:"Bem estar integral",
+speakers:"Dr Marcelo, Murilo Hbit, Dani Piantino",
+ativacoes:"Novamed, farmácia, medicamentos",
 img:"https://images.unsplash.com/photo-1492724441997-5dc865305da7"
 },
 
 {
-tema:"Bem estar social: Como o iFood impacta",
+tema:"Bem estar social",
 speakers:"Pri Fontanelli, Bozza",
-ativacoes:"Saldos do iFood benefícios, Eat On, mobilidade, cultura, farmácia",
+ativacoes:"iFood benefícios, cultura, mobilidade",
 img:"https://images.unsplash.com/photo-1529333166437-7750a6dd5a70"
 }
 
 ]
 
-function openModal(index){
+function openModal(i){
 
 document.getElementById("modal").style.display="flex"
 
-document.getElementById("modalTema").innerText = eventos[index].tema
-document.getElementById("modalSpeakers").innerText = eventos[index].speakers
-document.getElementById("modalAtivacoes").innerText = eventos[index].ativacoes
-document.getElementById("modalImg").src = eventos[index].img
+document.getElementById("modalTema").innerText=eventos[i].tema
+document.getElementById("modalSpeakers").innerText=eventos[i].speakers
+document.getElementById("modalAtivacoes").innerText=eventos[i].ativacoes
+document.getElementById("modalImg").src=eventos[i].img
 
 }
 
