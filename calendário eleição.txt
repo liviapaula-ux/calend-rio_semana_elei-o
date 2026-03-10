@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Semana de Benefícios e Bem Estar</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f4f4f4;
+margin:0;
+padding:0;
+}
+
+header{
+background:#e31c23;
+color:white;
+padding:30px;
+text-align:center;
+font-size:32px;
+font-weight:bold;
+}
+
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.card{
+background:white;
+border-radius:10px;
+padding:20px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.data{
+font-weight:bold;
+color:#e31c23;
+margin-bottom:10px;
+}
+
+.tema{
+font-size:18px;
+font-weight:bold;
+}
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+}
+
+.modal-content{
+background:white;
+padding:30px;
+border-radius:10px;
+max-width:600px;
+width:90%;
+}
+
+.modal img{
+width:100%;
+border-radius:8px;
+margin-bottom:20px;
+}
+
+.close{
+float:right;
+cursor:pointer;
+font-size:20px;
+font-weight:bold;
+}
+
+.section{
+margin-top:15px;
+}
+
+.section-title{
+font-weight:bold;
+margin-bottom:5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+Semana de Benefícios e Bem Estar
+</header>
+
+<div class="container">
+
+<div class="card" onclick="openModal(0)">
+<div class="data">10/06</div>
+<div class="tema">Benefícios flexíveis e o bem estar</div>
+</div>
+
+<div class="card" onclick="openModal(1)">
+<div class="data">11/06</div>
+<div class="tema">Bem-estar emocional e produtividade sustentável</div>
+</div>
+
+<div class="card" onclick="openModal(2)">
+<div class="data">12/06</div>
+<div class="tema">Bem estar físico: Corpo saudável, mente produtiva</div>
+</div>
+
+<div class="card" onclick="openModal(3)">
+<div class="data">15/06</div>
+<div class="tema">Bem estar integral: Vida equilibrada</div>
+</div>
+
+<div class="card" onclick="openModal(4)">
+<div class="data">16/06</div>
+<div class="tema">Bem estar social: Como o iFood impacta</div>
+</div>
+
+</div>
+
+
+<div class="modal" id="modal">
+<div class="modal-content">
+
+<span class="close" onclick="closeModal()">X</span>
+
+<img id="modalImg" src="">
+
+<h2 id="modalTema"></h2>
+
+<div class="section">
+<div class="section-title">Speakers</div>
+<div id="modalSpeakers"></div>
+</div>
+
+<div class="section">
+<div class="section-title">Ativações durante o dia</div>
+<div id="modalAtivacoes"></div>
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+const eventos = [
+
+{
+tema:"Abertura: Benefícios flexíveis e o bem estar",
+speakers:"Rafaela Lockton, Lilian Kazama, Dr Leandro",
+ativacoes:"Novidades da eleição de benefícios 2026, datas e regras, convite para próximas palestras",
+img:"https://images.unsplash.com/photo-1552664730-d307ca884978"
+},
+
+{
+tema:"Bem-estar emocional e produtividade sustentável",
+speakers:"May (Psicóloga), Vittude, Nat Ubilla, Wellhub",
+ativacoes:"Ativações Vittude, Apps de bem estar, IDOC",
+img:"https://images.unsplash.com/photo-1506126613408-eca07ce68773"
+},
+
+{
+tema:"Bem estar físico: Corpo saudável, mente produtiva",
+speakers:"Dr Amigo, Dr Marcelo Morgado, Bradesco",
+ativacoes:"Ativações Wellhub, produtos para exercícios",
+img:"https://images.unsplash.com/photo-1517836357463-d25dfeac3438"
+},
+
+{
+tema:"Bem estar integral: Vida equilibrada em um mundo acelerado",
+speakers:"Dr Marcelo, Murilo (Hbit), Dani Piantino",
+ativacoes:"Ativações Novamed, IDOC, farmácia, medicamentos",
+img:"https://images.unsplash.com/photo-1492724441997-5dc865305da7"
+},
+
+{
+tema:"Bem estar social: Como o iFood impacta",
+speakers:"Pri Fontanelli, Bozza",
+ativacoes:"Saldos do iFood benefícios, Eat On, mobilidade, cultura, farmácia",
+img:"https://images.unsplash.com/photo-1529333166437-7750a6dd5a70"
+}
+
+]
+
+function openModal(index){
+
+document.getElementById("modal").style.display="flex"
+
+document.getElementById("modalTema").innerText = eventos[index].tema
+document.getElementById("modalSpeakers").innerText = eventos[index].speakers
+document.getElementById("modalAtivacoes").innerText = eventos[index].ativacoes
+document.getElementById("modalImg").src = eventos[index].img
+
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none"
+}
+
+</script>
+
+</body>
+</html>
